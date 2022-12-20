@@ -1,12 +1,18 @@
 #Greenfoot project file
 class.TextBox.image=Untitled588_20221220124033.PNG
-class.Title.image=School\ Background\ 1.png
+class.Title.image=Forest.png
+dependency1.from=Title
+dependency1.to=MyWorld
+dependency1.type=UsesDependency
+dependency2.from=MyWorld
+dependency2.to=TextBox
+dependency2.type=UsesDependency
 editor.fx.0.height=830
 editor.fx.0.width=1550
 editor.fx.0.x=-7
 editor.fx.0.y=-7
 height=814
-package.numDependencies=0
+package.numDependencies=2
 package.numTargets=4
 project.charset=windows-1252
 publish.hasSource=false
