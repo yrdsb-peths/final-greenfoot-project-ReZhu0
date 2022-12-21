@@ -20,6 +20,6 @@ public class MyWorld extends World
         super(1000, 500, 1);
         
         TextBox text = new TextBox();
-        addObject (text , 500, 300);
+        addObject (text , 500, 250);
     }
 }
