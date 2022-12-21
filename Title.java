@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Title extends World
 {
     
-    GreenfootImage[] title1 = new GreenfootImage[1];
+    GreenfootImage title1 = new GreenfootImage("images/propes/title.png");
 
     /**
      * Constructor for objects of class Title.
@@ -19,7 +19,6 @@ public class Title extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 500, 1); 
-        title1 = new GreenfootImage("Propes/title.png");
         setImage(title1);
     }
     
