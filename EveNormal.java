@@ -13,7 +13,7 @@ public class EveNormal extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootImage[] idle = new GreenfootImage[5];
+    GreenfootImage[] idle = new GreenfootImage[12];
     
     SimpleTimer animationTimer = new SimpleTimer();
     public EveNormal()
@@ -24,8 +24,15 @@ public class EveNormal extends Actor
         idle[2] = new GreenfootImage("images/characters/eve_idle2.png");
         idle[3] = new GreenfootImage("images/characters/eve_idle1.png");
         idle[4] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[5] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[6] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[7] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[8] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[9] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[10] = new GreenfootImage("images/characters/eve_idle0.png");
+        idle[11] = new GreenfootImage("images/characters/eve_idle0.png");
                     
-        setImage(idle[1]);
+        setImage(idle[0]);
         animationTimer.mark();
     }
     
@@ -45,5 +52,6 @@ public class EveNormal extends Actor
     public void act()
     {
         // Add your action code here.
+        animateIdle();
     }
 }

@@ -26,7 +26,7 @@ public class TitleScreen extends World
     {
         if(Greenfoot.isKeyDown("space"))
         {
-            GameWorld gameWorld = new GameWorld();
+            GameWorld0 gameWorld = new GameWorld0();
             Greenfoot.setWorld(gameWorld);
         }
     }
