@@ -4,7 +4,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class MyWorld here.
  * Visual Novel
  * 
- * @author Rebecca Zhu 
+ * You talk to Eve in your day-to-day life.
+ * 
+ * @author R.Z 
  * @version Dec 16 2022
  */
 public class GameWorld0 extends World
