@@ -21,5 +21,8 @@ public class MyWorld extends World
         
         TextBox text = new TextBox();
         addObject (text , 500, 250);
+        
+        EveNormal eveNormal = new EveNormal();
+        addObject(eveNormal,500,250);
     }
 }
