@@ -9,7 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameWorld0 extends World
 {
-
+    Label text = new Label("Hello", 100);
+    Label nameEve = new Label("Eve",70);
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -24,5 +26,6 @@ public class GameWorld0 extends World
         
         TextBox text = new TextBox();
         addObject (text , 500, 250);
+        
     }
 }
