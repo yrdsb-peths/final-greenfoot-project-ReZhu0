@@ -14,6 +14,14 @@ public class GameWorld0 extends World
     Label text = new Label("Hello", 35);
     //Label choice1 = new Label("I'm good?", 50);
     Label nameEve = new Label("Eve",45);
+    
+    String[] sentences = new String[10];
+    int idx = 0;
+    
+    boolean paused = false;
+    
+    SimpleTimer pauseTimer = new SimpleTimer();
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -32,12 +40,19 @@ public class GameWorld0 extends World
         addObject (text, 210, 390);
         //How the name should look
         addObject (nameEve, 210, 332);
+        
+        sentences[0] = "Hello";
+        sentences[1] = "What is your name?";
+        sentences[2] = "I'm fine.";
+        
+        pauseTimer.mark();
     }
     
     public void act ()
     {
         if(Greenfoot.isKeyDown("space"))
         {
+<<<<<<< HEAD
             removeObject(text);
             Label text1 = new Label("What is your name?", 35);
             addObject (text1, 308, 390);
@@ -46,7 +61,23 @@ public class GameWorld0 extends World
                 removeObject(text);
                 Label text2 = new Label("That's nice", 35);
                 addObject (text2  , 308, 390);
+=======
+            if(!paused){
+                text.setValue(nextSentence());
+                paused = true;
+                pauseTimer.mark();
+>>>>>>> 0969608e3386d3ed1479ffdce9376c45a0410247
             }
         }
+        
+        if(pauseTimer.millisElapsed() > 100){
+            paused = false;
+        }
     }
+    
+    private String nextSentence(){
+        return sentences[idx++];
+    }
+    
+    
 }
