@@ -52,7 +52,6 @@ public class GameWorld0 extends World
     {
         if(Greenfoot.isKeyDown("space"))
         {
-<<<<<<< HEAD
             removeObject(text);
             Label text1 = new Label("What is your name?", 35);
             addObject (text1, 308, 390);
@@ -61,23 +60,23 @@ public class GameWorld0 extends World
                 removeObject(text);
                 Label text2 = new Label("That's nice", 35);
                 addObject (text2  , 308, 390);
-=======
-            if(!paused){
-                text.setValue(nextSentence());
-                paused = true;
-                pauseTimer.mark();
->>>>>>> 0969608e3386d3ed1479ffdce9376c45a0410247
+
+                if(!paused)
+                {
+                    text.setValue(nextSentence());
+                    paused = true;
+                    pauseTimer.mark();
+                }
+            } 
+        
+            if(pauseTimer.millisElapsed() > 100)
+            {
+                paused = false;
             }
         }
-        
-        if(pauseTimer.millisElapsed() > 100){
-            paused = false;
-        }
     }
-    
-    private String nextSentence(){
-        return sentences[idx++];
+    private String nextSentence()
+    {
+            return sentences[idx++];
     }
-    
-    
 }
