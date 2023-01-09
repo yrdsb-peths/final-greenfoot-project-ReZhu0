@@ -12,7 +12,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld0 extends World
 {
     Label text = new Label("Hello", 35);
-    Label choice1 = new Label("I'm good?", 50);
+    //Label choice1 = new Label("I'm good?", 50);
     Label nameEve = new Label("Eve",45);
     /**
      * Constructor for objects of class MyWorld.
@@ -32,8 +32,6 @@ public class GameWorld0 extends World
         addObject (text, 210, 390);
         //How the name should look
         addObject (nameEve, 210, 332);
-        
-        
     }
     
     public void act ()
@@ -41,13 +39,13 @@ public class GameWorld0 extends World
         if(Greenfoot.isKeyDown("space"))
         {
             removeObject(text);
-            Label text1 = new Label("How are you?", 35);
-            addObject (text1, 266, 390);
+            Label text1 = new Label("What is your name?", 35);
+            addObject (text1, 308, 390);
             if(Greenfoot.isKeyDown("space")) //Need another key to proceed correctly.
             {
-                TextBox2 textbox2 = new TextBox2();
-                addObject(textbox2, 500 , 250);
-                addObject(choice1, 500, 175);
+                removeObject(text);
+                Label text2 = new Label("That's nice", 35);
+                addObject (text2, 308, 390);
             }
         }
     }
