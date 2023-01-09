@@ -45,7 +45,7 @@ public class GameWorld0 extends World
             {
                 removeObject(text);
                 Label text2 = new Label("That's nice", 35);
-                addObject (text2, 308, 390);
+                addObject (text2  , 308, 390);
             }
         }
     }
