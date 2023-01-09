@@ -34,8 +34,8 @@ public class GameWorld0 extends World
         EveNormal eveNormal = new EveNormal();
         addObject(eveNormal,500,250);
         
-        TextBox textbox = new TextBox();
-        addObject (textbox , 500, 250);
+        //TextBox textbox = new TextBox();
+        //addObject (textbox , 500, 250);
         //How the text should look
         addObject (text, 210, 390);
         //How the name should look
@@ -51,28 +51,18 @@ public class GameWorld0 extends World
     public void act ()
     {
         if(Greenfoot.isKeyDown("space"))
-        {
-            removeObject(text);
-            Label text1 = new Label("What is your name?", 35);
-            addObject (text1, 308, 390);
-            if(Greenfoot.isKeyDown("space")) //Need another key to proceed correctly.
+        {               
+            if(!paused)
             {
-                removeObject(text);
-                Label text2 = new Label("That's nice", 35);
-                addObject (text2  , 308, 390);
-
-                if(!paused)
-                {
                     text.setValue(nextSentence());
                     paused = true;
                     pauseTimer.mark();
-                }
-            } 
-        
-            if(pauseTimer.millisElapsed() > 100)
-            {
-                paused = false;
             }
+        } 
+        
+        if(pauseTimer.millisElapsed() > 100)
+        {
+            paused = false;
         }
     }
     private String nextSentence()
