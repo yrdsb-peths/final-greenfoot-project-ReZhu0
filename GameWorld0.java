@@ -34,19 +34,27 @@ public class GameWorld0 extends World
         EveNormal eveNormal = new EveNormal();
         addObject(eveNormal,500,250);
         
-        //TextBox textbox = new TextBox();
-        //addObject (textbox , 500, 250);
+        TextBox textbox = new TextBox();
+        addObject (textbox , 500, 250);
         //How the text should look
-        addObject (text, 210, 390);
+        addObject (text, 500, 390);
         //How the name should look
         addObject (nameEve, 210, 332);
         
-        sentences[0] = "Hello";
+        TextBox2 choice1 = new TextBox2();
+        
+        sentences[0] = "I'm Eve";
         sentences[1] = "What is your name?";
-        sentences[2] = "I'm fine.";
+        sentences[2] = "What is your name?";
+        sentences[3] = "What is your name?";
         
         pauseTimer.mark();
+        
+        Pointer pointer = new Pointer();
+        addObject(pointer, -10, -10);
     }
+    //This is to keep track the points to each ending
+    int ending = 0;
     
     public void act ()
     {
@@ -57,6 +65,13 @@ public class GameWorld0 extends World
                     text.setValue(nextSentence());
                     paused = true;
                     pauseTimer.mark();
+                    if(idx == 3)
+                    {
+                        TextBox2 choice1 = new TextBox2();
+                        addObject(choice1, 500, 250);
+                        Label name = new Label("I'm John", 45);
+                        addObject (name,500,180);
+                    }
             }
         } 
         

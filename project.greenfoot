@@ -1,7 +1,10 @@
 #Greenfoot project file
 class.GameWorld0.image=Road\ Background\ 1\ (Snow).png
 class.MyWorld.image=School\ Background\ 1.png
-class.TextBox.image=Untitled588_20221220124033.PNG
+class.TextBox.image=textbox0.png
+class.TextBox1.image=textbox1.png
+class.TextBox2.image=textbox2.png
+class.TextBox3.image=textbox3.png
 class.Title.image=title.PNG
 class.TitleScreen.image=Forest.png
 dependency1.from=MyWorld
@@ -28,10 +31,10 @@ dependency7.type=UsesDependency
 dependency8.from=EveNormal
 dependency8.to=SimpleTimer
 dependency8.type=UsesDependency
-editor.fx.0.height=830
-editor.fx.0.width=1550
-editor.fx.0.x=-7
-editor.fx.0.y=-7
+editor.fx.0.height=822
+editor.fx.0.width=960
+editor.fx.0.x=450
+editor.fx.0.y=88
 height=830
 package.numDependencies=8
 package.numTargets=11
