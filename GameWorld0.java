@@ -71,6 +71,10 @@ public class GameWorld0 extends World
                         addObject(choice1, 500, 250);
                         Label name = new Label("I'm John", 45);
                         addObject (name,500,180);
+                        if (Greenfoot.mouseClicked(choice1))
+                        {
+                            removeObject(choice1);
+                        }
                     }
             }
         } 
