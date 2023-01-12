@@ -72,7 +72,7 @@ public class GameWorld0 extends World
             
             if(idx == 8)
             {
-                addObject(responseA, 500, 250);
+                responseA.show();
                 responseA.setText("I'm good");
                 choiceEnabled = true;
             }
