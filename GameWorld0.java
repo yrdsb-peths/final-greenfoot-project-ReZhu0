@@ -84,9 +84,9 @@ public class GameWorld0 extends World
             if(Greenfoot.mouseClicked(responseA))
             {
                 choiceEnabled = false;
-                // remove responseA
-                removeObject(responseA);
+                // hide responseA
                 responseA.setText(" ");
+                responseA.hide();
                 idx++;
             }
             // advance nextSentence

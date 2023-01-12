@@ -22,4 +22,13 @@ public class ResponseTextbox extends Actor
         mainLabel.setValue(text);
     }
     
+    public void hide(){
+        getImage().setTransparency(0);
+        mainLabel.setValue("");
+    }
+    
+    public void show(){
+        getImage().setTransparency(255);
+    }
+    
 }
