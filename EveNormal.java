@@ -54,4 +54,12 @@ public class EveNormal extends Actor
         // Add your action code here.
         animateIdle();
     }
+    
+    public void hideImage(){
+        getImage().setTransparency(0);
+    }
+    
+    public void showImage(){
+        getImage().setTransparency(255);
+    }
 }

@@ -13,14 +13,14 @@ public class MainTextbox extends Actor
     
     public MainTextbox()
     {
-        setText("Hello");
-        setName("Eve");
+        setText("Hey");
+        setName("Strange Girl");
     }
     
     public void addedToWorld(World world)
     {
         world.addObject(mainLabel, 500, 410);
-        world.addObject(nameLabel, 210, 332);
+        world.addObject(nameLabel, 300, 332);
     }
     
     public void setText(String text)

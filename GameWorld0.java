@@ -14,7 +14,10 @@ public class GameWorld0 extends World
     MainTextbox mainTextbox = new MainTextbox(); 
     ResponseTextbox responseA = new ResponseTextbox();
     
-    String[] sentences = new String[10];
+    EveNormal eveNormal = new EveNormal();
+    EveHappy eveHappy = new EveHappy();
+    
+    String[] sentences = new String[20];
     int idx = 0;
 
     boolean paused = false;
@@ -30,15 +33,9 @@ public class GameWorld0 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 500, 1);
-
-        // Eve's image
-        EveNormal eveNormal = new EveNormal();
-        addObject(eveNormal,500,250);
-
-        addObject(mainTextbox , 500, 250);
         
-
-        sentences[0] = "I'm Eve";
+        //Dialoges
+        sentences[0] = "You there";
         sentences[1] = "What is your name?";
         sentences[2] = "What is your name?";
         sentences[3] = "What is your name?";
@@ -47,9 +44,20 @@ public class GameWorld0 extends World
         sentences[6] = "How are you?";
         sentences[7] = "How are you?";
         sentences[8] = "How are you?";
+        sentences[9] = "Great!";
+        sentences[10] = "Are you free right now?";
+        sentences[11] = "I have a coupon for a very popular drink";
+        sentences[12] = "It's at a near by cafe";
+        sentences[13] = "I was suppose to go with a friends but he...";
+        sentences[14] = "So will you go with me instead?";
+        sentences[15] = "Don't worry! I'll pay for the whole thing!";
+        sentences[16] = "So please? Pretty please??";
+        sentences[17] = "So please? Pretty please??";
+        sentences[18] = "Yes! Thanks John!";
+        sentences[19] = "Let's right now before a line form!";
 
         pauseTimer.mark();
-
+        //the cursor
         Pointer pointer = new Pointer();
         addObject(pointer, -10, -10);
     }
@@ -58,22 +66,42 @@ public class GameWorld0 extends World
 
     public void act ()
     {
+        //The pngs
+        addObject(eveNormal,500,250);
+        addObject(eveHappy, 500,250);
+        eveHappy.hideImage();
+        
+        addObject(mainTextbox , 500, 250);
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
-        {               
+        {
             mainTextbox.setText(nextSentence());
             paused = true;
             pauseTimer.mark();
             if(idx == 3)
             {
+                //Option 1
                 addObject(responseA, 500, 250);
-                responseA.setText("I'm John");
+                responseA.setText("Uh, I'm John");
                 choiceEnabled = true;
             }
-            
+            if(idx == 5)
+            {
+                //The image should change to eve.Happy
+                eveNormal.hideImage();
+                eveHappy.showImage();
+            }
             if(idx == 8)
             {
+                //Option 2
                 responseA.show();
-                responseA.setText("I'm good");
+                responseA.setText("I'm good...");
+                choiceEnabled = true;
+            }
+            if(idx == 17)
+            {
+                //Option 2
+                responseA.show();
+                responseA.setText("Well, it is a free drink...");
                 choiceEnabled = true;
             }
         } 
@@ -88,6 +116,7 @@ public class GameWorld0 extends World
                 responseA.setText(" ");
                 responseA.hide();
                 idx++;
+                mainTextbox.setText(nextSentence());
             }
             // advance nextSentence
         }

@@ -11,7 +11,7 @@ public class ResponseTextbox extends Actor
     Label mainLabel = new Label("", 35);
     
     public ResponseTextbox(){
-        setText("John");
+        setText(" ");
     }
     
     public void addedToWorld(World world){
