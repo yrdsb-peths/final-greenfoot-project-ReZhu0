@@ -42,6 +42,11 @@ public class GameWorld0 extends World
         sentences[1] = "What is your name?";
         sentences[2] = "What is your name?";
         sentences[3] = "What is your name?";
+        sentences[4] = "Hi John";
+        sentences[5] = "I'm Eve";
+        sentences[6] = "How are you?";
+        sentences[7] = "How are you?";
+        sentences[8] = "How are you?";
 
         pauseTimer.mark();
 
@@ -58,20 +63,31 @@ public class GameWorld0 extends World
             mainTextbox.setText(nextSentence());
             paused = true;
             pauseTimer.mark();
-         
-            if(idx == 3){
+            if(idx == 3)
+            {
                 addObject(responseA, 500, 250);
                 responseA.setText("I'm John");
                 choiceEnabled = true;
             }
+            
+            if(idx == 8)
+            {
+                addObject(responseA, 500, 250);
+                responseA.setText("I'm good");
+                choiceEnabled = true;
+            }
         } 
         
-        if(choiceEnabled){
+        if(choiceEnabled)
+        {
             // if mouseclicked
-            if(Greenfoot.mouseClicked(responseA)){
+            if(Greenfoot.mouseClicked(responseA))
+            {
                 choiceEnabled = false;
                 // remove responseA
                 removeObject(responseA);
+                responseA.setText(" ");
+                idx++;
             }
             // advance nextSentence
         }
