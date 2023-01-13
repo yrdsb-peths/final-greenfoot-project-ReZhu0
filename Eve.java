@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EveNormal here.
+ * Write a description of class Eve here.
  * 
  * @author R.Z 
  * @version Dec 16 2022
  */
-public class EveNormal extends Actor
+public class Eve extends Actor
 {
     /**
      * Act - do whatever the EveNormal wants to do. This method is called whenever
@@ -15,13 +15,13 @@ public class EveNormal extends Actor
     
     GreenfootImage[] idle = new GreenfootImage[12];
     
-    // GreenfootImage happy = new GreenfootImage();
+    GreenfootImage happy = new GreenfootImage("images/characters/eve_happy.png");
     
     SimpleTimer animationTimer = new SimpleTimer();
     
     String state = "normal"; // angry, happy
     
-    public EveNormal()
+    public Eve()
     {
         //happy = new GreenfootImage("images/characters/eve_idle0.png")
         
@@ -43,7 +43,7 @@ public class EveNormal extends Actor
     }
     
     int i = 0;
-    public void animateIdle()
+    public void animateNormal()
     {
         if(animationTimer.millisElapsed() < 200)
         {
@@ -58,12 +58,19 @@ public class EveNormal extends Actor
     public void act()
     {
         // Add your action code here.
-        if(state.equals("normal")){
-            animateIdle();
-        }else if(state.equals("happy")){
+        if(state.equals("normal"))
+        {
+            animateNormal();
+        }else if(state.equals("happy"))
+        {
             //show happy
-            //setImage(happy)
+            setImage(happy);
         }
+    }
+    
+    public void setState(String text)
+    {
+        
     }
     
     public void hideImage(){

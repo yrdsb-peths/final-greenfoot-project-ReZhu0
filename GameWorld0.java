@@ -14,8 +14,7 @@ public class GameWorld0 extends World
     MainTextbox mainTextbox = new MainTextbox(); 
     ResponseTextbox responseA = new ResponseTextbox();
     
-    EveNormal eveNormal = new EveNormal();
-    EveHappy eveHappy = new EveHappy();
+    Eve eve = new Eve();
     
     String[] sentences = new String[20];
     int idx = 0;
@@ -67,10 +66,7 @@ public class GameWorld0 extends World
     public void act ()
     {
         //The pngs
-        addObject(eveNormal,500,250);
-        addObject(eveHappy, 500,250);
-        eveHappy.hideImage();
-        
+        addObject(eve,500,250);
         
         // eve.state = "happy"
         
@@ -90,8 +86,7 @@ public class GameWorld0 extends World
             if(idx == 5)
             {
                 //The image should change to eve.Happy
-                eveNormal.hideImage();
-                eveHappy.showImage();
+                eve.setState("happy");
             }
             if(idx == 8)
             {
