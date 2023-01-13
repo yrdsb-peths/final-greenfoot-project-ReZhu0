@@ -16,7 +16,7 @@ public class GameWorld0 extends World
     
     Eve eve = new Eve();
     
-    String[] sentences = new String[20];
+    String[] sentences = new String[23];
     int idx = 0;
 
     String response = "normal";
@@ -57,8 +57,11 @@ public class GameWorld0 extends World
         sentences[15] = "Don't worry! I'll pay for the whole thing!";
         sentences[16] = "So please? Pretty please??";
         sentences[17] = "So please? Pretty please??";
-        sentences[18] = "Yes! Thanks John!";
-        sentences[19] = "Let's right now before a line form!";
+        sentences[18] = "So please? Pretty please??";
+        sentences[19] = "Yes! Thanks John!";
+        sentences[20] = "Let's right now before a line form!";
+        sentences[21] = "Let's right now before a line form!";
+        sentences[22] = "Let's right now before a line form!";
 
         pauseTimer.mark();
         //the cursor
@@ -78,24 +81,35 @@ public class GameWorld0 extends World
         }
         if(idx == 6)
         {
-                //The image should change to eve.Happy
+                //The image should change to eve.Normal
                 eve.setState("normal");
                 mainTextbox.setName("Eve");
         }
-        if(idx == 18)
+        if(idx == 10)
         {
                 //The image should change to eve.Happy
                 eve.setState("happy");
         }
-        if(idx == 19)
+        if(idx == 11)
         {
-                //The image should change to eve.Happy
-                eve.setState("happy");
+                //The image should change to eve.Normal
+                eve.setState("normal");
         }
         if(idx == 20)
         {
-                //The image should change to eve.Happy
+                //The image should change to eve.Normal
+                eve.setState("happy");
+        }
+        if(idx == 21)
+        {
+                //The image should change to eve.Normal
                 eve.setState("normal");
+        }
+        if(idx == 22)
+        {
+                //Continue to the next world
+                GameWorld1 gameWorld1 = new GameWorld1();
+                Greenfoot.setWorld(gameWorld1);
         }
         //For the option box to show up
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
@@ -117,7 +131,7 @@ public class GameWorld0 extends World
                 responseA.setText("I'm good...");
                 choiceEnabled = true;
             }
-            if(idx == 17)
+            if(idx == 18)
             {
                 //Option 2
                 responseA.show();
