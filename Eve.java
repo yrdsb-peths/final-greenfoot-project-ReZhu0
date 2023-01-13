@@ -70,7 +70,7 @@ public class Eve extends Actor
     
     public void setState(String text)
     {
-        
+        state = text;
     }
     
     public void hideImage(){

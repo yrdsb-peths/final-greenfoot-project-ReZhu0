@@ -19,6 +19,8 @@ public class GameWorld0 extends World
     String[] sentences = new String[20];
     int idx = 0;
 
+    String response = "normal";
+    
     boolean paused = false;
     boolean choiceEnabled = false;
 
@@ -32,6 +34,9 @@ public class GameWorld0 extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 500, 1);
+        
+        addObject(eve,500,250);
+        addObject(mainTextbox , 500, 250);
         
         //Dialoges
         sentences[0] = "You there";
@@ -65,12 +70,8 @@ public class GameWorld0 extends World
 
     public void act ()
     {
-        //The pngs
-        addObject(eve,500,250);
         
         // eve.state = "happy"
-        
-        addObject(mainTextbox , 500, 250);
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
