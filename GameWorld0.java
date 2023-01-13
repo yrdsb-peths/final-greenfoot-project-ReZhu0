@@ -72,6 +72,11 @@ public class GameWorld0 extends World
     {
         
         // eve.state = "happy"
+        if(idx == 5)
+            {
+                //The image should change to eve.Happy
+                eve.setState("happy");
+            }
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
@@ -84,11 +89,7 @@ public class GameWorld0 extends World
                 responseA.setText("Uh, I'm John");
                 choiceEnabled = true;
             }
-            if(idx == 5)
-            {
-                //The image should change to eve.Happy
-                eve.setState("happy");
-            }
+        
             if(idx == 8)
             {
                 //Option 2
