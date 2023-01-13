@@ -70,13 +70,34 @@ public class GameWorld0 extends World
 
     public void act ()
     {
-        
-        // eve.state = "happy"
+        // For Eve to change expression mid conversation
         if(idx == 5)
-            {
+        {
                 //The image should change to eve.Happy
                 eve.setState("happy");
-            }
+        }
+        if(idx == 6)
+        {
+                //The image should change to eve.Happy
+                eve.setState("normal");
+                mainTextbox.setName("Eve");
+        }
+        if(idx == 18)
+        {
+                //The image should change to eve.Happy
+                eve.setState("happy");
+        }
+        if(idx == 19)
+        {
+                //The image should change to eve.Happy
+                eve.setState("happy");
+        }
+        if(idx == 20)
+        {
+                //The image should change to eve.Happy
+                eve.setState("normal");
+        }
+        //For the option box to show up
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
@@ -89,7 +110,6 @@ public class GameWorld0 extends World
                 responseA.setText("Uh, I'm John");
                 choiceEnabled = true;
             }
-        
             if(idx == 8)
             {
                 //Option 2
