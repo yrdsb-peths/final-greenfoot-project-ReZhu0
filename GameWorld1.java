@@ -12,6 +12,7 @@ public class GameWorld1 extends World
     ResponseTextbox responseA = new ResponseTextbox();
     Eve eve = new Eve();
     Table table = new Table();
+    JohnTextbox johnTextbox = new JohnTextbox();
     
     String[] sentences = new String[20];
     int idx = 0;
@@ -33,12 +34,13 @@ public class GameWorld1 extends World
         
         addObject(eve,500,250);
         addObject(table,500,250);
-        addObject(mainTextbox , 500, 250);
+        addObject(johnTextbox , 500, 250);
         
         mainTextbox.setName("Eve");
-        mainTextbox.setText("So while we wait, tell me about yourself");
+        johnTextbox.setText("You and Eve headed to the cafe and was steated");
         //Dialoges
-        sentences[0] = "You there";
+        sentences[0] = " ";
+        sentences[1] = "Hey John, what are you gonna order?";
 
         pauseTimer.mark();
         //the cursor
@@ -53,6 +55,11 @@ public class GameWorld1 extends World
             mainTextbox.setText(nextSentence());
             paused = true;
             pauseTimer.mark();
+            if(idx == 1)
+            {
+                johnTextbox.setText("She is taking her time looking at the menu...");
+                mainTextbox.hide();
+            }
         }
         if(choiceEnabled)
         {

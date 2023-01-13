@@ -32,4 +32,13 @@ public class MainTextbox extends Actor
     {
         nameLabel.setValue(text);
     }
+    
+    public void hide(){
+        getImage().setTransparency(0);
+        mainLabel.setValue("");
+    }
+    
+    public void show(){
+        getImage().setTransparency(255);
+    }
 }

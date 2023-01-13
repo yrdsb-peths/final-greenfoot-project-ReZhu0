@@ -13,8 +13,8 @@ public class GameWorld0 extends World
 {
     MainTextbox mainTextbox = new MainTextbox(); 
     ResponseTextbox responseA = new ResponseTextbox();
-    
     Eve eve = new Eve();
+    JohnTextbox johnTextbox = new JohnTextbox();
     
     String[] sentences = new String[23];
     int idx = 0;
