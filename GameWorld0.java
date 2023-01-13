@@ -71,6 +71,9 @@ public class GameWorld0 extends World
         addObject(eveHappy, 500,250);
         eveHappy.hideImage();
         
+        
+        // eve.state = "happy"
+        
         addObject(mainTextbox , 500, 250);
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {

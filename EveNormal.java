@@ -15,9 +15,15 @@ public class EveNormal extends Actor
     
     GreenfootImage[] idle = new GreenfootImage[12];
     
+    // GreenfootImage happy = new GreenfootImage();
+    
     SimpleTimer animationTimer = new SimpleTimer();
+    
+    String state = "normal"; // angry, happy
+    
     public EveNormal()
     {
+        //happy = new GreenfootImage("images/characters/eve_idle0.png")
         
         idle[0] = new GreenfootImage("images/characters/eve_idle0.png");
         idle[1] = new GreenfootImage("images/characters/eve_idle1.png");
@@ -52,7 +58,12 @@ public class EveNormal extends Actor
     public void act()
     {
         // Add your action code here.
-        animateIdle();
+        if(state.equals("normal")){
+            animateIdle();
+        }else if(state.equals("happy")){
+            //show happy
+            //setImage(happy)
+        }
     }
     
     public void hideImage(){
