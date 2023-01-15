@@ -34,13 +34,24 @@ public class GameWorld1 extends World
         
         addObject(eve,500,250);
         addObject(table,500,250);
+        addObject(mainTextbox,500,250);
         addObject(johnTextbox , 500, 250);
+        addObject(responseA,500,250);
         
         mainTextbox.setName("Eve");
         johnTextbox.setText("You and Eve headed to the cafe and was steated");
         //Dialoges
         sentences[0] = " ";
         sentences[1] = "Hey John, what are you gonna order?";
+        sentences[2] = "Hey John, what are you gonna order?";
+        sentences[3] = "Okay then, your choice";
+        sentences[4] = "Okay then, your choice";
+
+        
+        mainTextbox.hide();
+        mainTextbox.setText(" ");
+        mainTextbox.setName(" ");
+        responseA.hide();
 
         pauseTimer.mark();
         //the cursor
@@ -50,15 +61,27 @@ public class GameWorld1 extends World
     
     public void act()
     {
+        if(idx == 1)
+        {
+            johnTextbox.setText("She is taking her time looking at the menu...");
+        }
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
             paused = true;
             pauseTimer.mark();
-            if(idx == 1)
+            if(idx == 2)
             {
-                johnTextbox.setText("She is taking her time looking at the menu...");
-                mainTextbox.hide();
+                mainTextbox.show();
+                mainTextbox.setText("Hey John, what are you gonna order?");
+                mainTextbox.setName("Eve");
+                johnTextbox.hide();
+            }
+            if(idx == 3)
+            {
+                responseA.show();
+                responseA.setText("I'll just have the drink");
+                choiceEnabled = true;
             }
         }
         if(choiceEnabled)
