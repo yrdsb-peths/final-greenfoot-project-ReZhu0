@@ -6,16 +6,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ResponseTextbox extends Actor
+public class ResponseTextboxB extends Actor
 {
     Label mainLabel = new Label("", 35);
     
-    public ResponseTextbox(){
+    public ResponseTextboxB(){
         setText(" ");
     }
     
     public void addedToWorld(World world){
-        world.addObject(mainLabel, 500, 180);
+        world.addObject(mainLabel, 500, 257);
     }
     
     public void setText(String text){

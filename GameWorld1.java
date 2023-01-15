@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld1 extends World
 {
     MainTextbox mainTextbox = new MainTextbox(); 
-    ResponseTextbox responseA = new ResponseTextbox();
+    ResponseTextboxA responseA = new ResponseTextboxA();
+    ResponseTextboxB responseB = new ResponseTextboxB();
     Eve eve = new Eve();
     Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
@@ -36,7 +37,6 @@ public class GameWorld1 extends World
         addObject(table,500,250);
         addObject(mainTextbox,500,250);
         addObject(johnTextbox , 500, 250);
-        addObject(responseA,500,250);
         
         mainTextbox.setName("Eve");
         johnTextbox.setText("You and Eve headed to the cafe and was steated");
@@ -46,8 +46,14 @@ public class GameWorld1 extends World
         sentences[2] = "Hey John, what are you gonna order?";
         sentences[3] = "Okay then, your choice";
         sentences[4] = "Okay then, your choice";
-
-        
+        sentences[5] = " ";
+        sentences[6] = "Um... John";
+        sentences[7] = "Since we have some time before the drinks arrive";
+        sentences[8] = "I would like to get to know you better";
+        sentences[9] = "Would you mind a little about yourself?";
+        sentences[10] = "Would you mind a little about yourself?";
+        sentences[11] = " ";
+    
         mainTextbox.hide();
         mainTextbox.setText(" ");
         mainTextbox.setName(" ");
@@ -58,13 +64,28 @@ public class GameWorld1 extends World
         Pointer pointer = new Pointer();
         addObject(pointer, -10, -10);
     }
-    
+    int goodEnding = 0;
+    int badEnding = 0;
     public void act()
     {
         if(idx == 1)
         {
             johnTextbox.setText("She is taking her time looking at the menu...");
         }
+        if(idx == 6)
+        {
+            johnTextbox.show();
+            johnTextbox.setText("Eve called over a waiter and submitted our orders");
+            mainTextbox.hide();
+            mainTextbox.setName(" ");
+        }
+        if(idx == 7)
+        {
+            mainTextbox.show();
+            mainTextbox.setName("Eve");
+            johnTextbox.hide();
+        }
+        
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
@@ -79,11 +100,22 @@ public class GameWorld1 extends World
             }
             if(idx == 3)
             {
+                addObject(responseA,500,250);
                 responseA.show();
                 responseA.setText("I'll just have the drink");
                 choiceEnabled = true;
             }
+            if(idx == 11)
+            {
+                responseA.show();
+                responseA.setText("Yeah sure");
+                addObject(responseB,500, 335);
+                responseB.show();
+                responseB.setText("No, I don't want to");
+                choiceEnabled = true;
+            }
         }
+    
         if(choiceEnabled)
         {
             // if mouseclicked
@@ -93,8 +125,23 @@ public class GameWorld1 extends World
                 // hide responseA
                 responseA.setText(" ");
                 responseA.hide();
+                responseB.setText(" ");
+                responseB.hide();
                 idx++;
                 mainTextbox.setText(nextSentence());
+                goodEnding++;
+            }
+            if(Greenfoot.mouseClicked(responseB))
+            {
+                choiceEnabled = false;
+                // hide responseB
+                responseA.setText(" ");
+                responseA.hide();
+                responseB.setText(" ");
+                responseB.hide();
+                idx++;
+                mainTextbox.setText(nextSentence());
+                badEnding++;
             }
             // advance nextSentence
         }

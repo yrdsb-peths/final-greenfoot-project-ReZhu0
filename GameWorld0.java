@@ -12,7 +12,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class GameWorld0 extends World
 {
     MainTextbox mainTextbox = new MainTextbox(); 
-    ResponseTextbox responseA = new ResponseTextbox();
+    ResponseTextboxA responseA = new ResponseTextboxA();
     Eve eve = new Eve();
     JohnTextbox johnTextbox = new JohnTextbox();
     
