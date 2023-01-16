@@ -91,16 +91,6 @@ public class GameWorld1 extends World
             mainTextbox.setName("Eve");
             johnTextbox.hide();
         }
-        if(idx == 13 && goodEnding == 1)
-        {
-            mainTextbox.setText(option1_g);
-            eve.setState("happy");
-        }
-        if(idx == 13 && badEnding == 1)
-        {
-            mainTextbox.setText(option1_b);
-            eve.setState("normal");
-        }
         
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
@@ -146,6 +136,11 @@ public class GameWorld1 extends World
                 idx++;
                 mainTextbox.setText(nextSentence());
                 goodEnding++;
+                if(idx == 13 && goodEnding == 1)
+                {
+                    mainTextbox.setText(option1_g);
+                    eve.setState("happy");
+                }
             }
             if(Greenfoot.mouseClicked(responseB))
             {
@@ -158,6 +153,11 @@ public class GameWorld1 extends World
                 idx++;
                 mainTextbox.setText(nextSentence());
                 badEnding++;
+                if(idx == 13 && badEnding == 1)
+                {
+                    mainTextbox.setText(option1_b);
+                    eve.setState("normal");
+                }
             }
             // advance nextSentence
         }
