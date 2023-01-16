@@ -23,6 +23,11 @@ public class GameWorld1 extends World
     boolean paused = false;
     boolean choiceEnabled = false;
 
+    //Good reponses
+    String option1_g = "Thanks!";
+    //Bad responses
+    String option1_b = "Oh, it's fine";
+    
     SimpleTimer pauseTimer = new SimpleTimer();
     /**
      * Constructor for objects of class GameWorld1.
@@ -54,17 +59,6 @@ public class GameWorld1 extends World
         sentences[10] = "Would you mind a little about yourself?";
         sentences[11] = " ";
         sentences[12] = " ";
-        sentences[13] = "text";
-        
-        if(idx == 13 && goodEnding == 1)
-        {
-            sentences[12] = "Thanks";
-            mainTextbox.setText(sentences[12]);
-        }
-        if(idx == 13 && badEnding == 1)
-        {
-            sentences[12] = "Oh, that's fine";
-        }
     
         mainTextbox.hide();
         mainTextbox.setText(" ");
@@ -76,8 +70,8 @@ public class GameWorld1 extends World
         Pointer pointer = new Pointer();
         addObject(pointer, -10, -10);
     }
-    int goodEnding = 0;
-    int badEnding = 0;
+    public int goodEnding = 0;
+    public int badEnding = 0;
     public void act()
     {
         if(idx == 1)
@@ -96,6 +90,16 @@ public class GameWorld1 extends World
             mainTextbox.show();
             mainTextbox.setName("Eve");
             johnTextbox.hide();
+        }
+        if(idx == 13 && goodEnding == 1)
+        {
+            mainTextbox.setText(option1_g);
+            eve.setState("happy");
+        }
+        if(idx == 13 && badEnding == 1)
+        {
+            mainTextbox.setText(option1_b);
+            eve.setState("normal");
         }
         
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
@@ -121,7 +125,7 @@ public class GameWorld1 extends World
             {
                 responseA.show();
                 responseA.setText("Yeah sure");
-                addObject(responseB,500, 335);
+                addObject(responseB,500, 345);
                 responseB.show();
                 responseB.setText("No, I don't want to");
                 choiceEnabled = true;

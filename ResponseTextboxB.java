@@ -15,7 +15,7 @@ public class ResponseTextboxB extends Actor
     }
     
     public void addedToWorld(World world){
-        world.addObject(mainLabel, 500, 257);
+        world.addObject(mainLabel, 500, 267);
     }
     
     public void setText(String text){

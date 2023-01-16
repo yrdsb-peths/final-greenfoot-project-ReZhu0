@@ -69,7 +69,6 @@ public class GameWorld0 extends World
         addObject(pointer, -10, -10);
     }
     //This is to keep track the points to each ending
-    int ending = 0;
 
     public void act ()
     {
