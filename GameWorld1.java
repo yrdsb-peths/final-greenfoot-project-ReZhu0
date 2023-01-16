@@ -53,6 +53,18 @@ public class GameWorld1 extends World
         sentences[9] = "Would you mind a little about yourself?";
         sentences[10] = "Would you mind a little about yourself?";
         sentences[11] = " ";
+        sentences[12] = " ";
+        sentences[13] = "text";
+        
+        if(idx == 13 && goodEnding == 1)
+        {
+            sentences[12] = "Thanks";
+            mainTextbox.setText(sentences[12]);
+        }
+        if(idx == 13 && badEnding == 1)
+        {
+            sentences[12] = "Oh, that's fine";
+        }
     
         mainTextbox.hide();
         mainTextbox.setText(" ");
