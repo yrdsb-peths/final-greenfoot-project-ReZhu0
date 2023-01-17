@@ -1,31 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class GameWorld1 here.
+ * Write a description of class MyWorld here.
+ * Visual Novel
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * You talk to Eve in your day-to-day life.
+ * 
+ * @author R.Z 
+ * @version Dec 16 2022
  */
 public class GameWorld2 extends World
 {
     MainTextbox mainTextbox = new MainTextbox(); 
     ResponseTextboxA responseA = new ResponseTextboxA();
-    ResponseTextboxB responseB = new ResponseTextboxB();
     Eve eve = new Eve();
-    Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
     
-    String[] sentences = new String[20];
+    String[] sentences = new String[23];
     int idx = 0;
 
     String response = "normal";
     
     boolean paused = false;
     boolean choiceEnabled = false;
-    
+
     SimpleTimer pauseTimer = new SimpleTimer();
+
     /**
-     * Constructor for objects of class GameWorld1.
+     * Constructor for objects of class MyWorld.
      * 
      */
     public GameWorld2()
@@ -34,92 +36,109 @@ public class GameWorld2 extends World
         super(1000, 500, 1);
         
         addObject(eve,500,250);
-        addObject(table,500,250);
-        addObject(mainTextbox,500,250);
-        addObject(johnTextbox , 500, 250);
+        addObject(mainTextbox , 500, 250);
         
-        mainTextbox.setName("Eve");
-        johnTextbox.setText("You and Eve headed to the cafe and was steated");
         //Dialoges
-        sentences[0] = " ";
-        sentences[1] = "Hey John, what are you gonna order?";
-        sentences[2] = "Hey John, what are you gonna order?";
-        sentences[3] = "Okay then, your choice";
-        sentences[4] = "Okay then, your choice";
-        sentences[5] = " ";
-        sentences[6] = "Um... John";
-        sentences[7] = "Since we have some time before the drinks arrive";
-        sentences[8] = "I would like to get to know you better";
-        sentences[9] = "Would you mind a little about yourself?";
-        sentences[10] = "Would you mind a little about yourself?";
-        sentences[11] = " ";
-        sentences[12] = " ";
-    
-        mainTextbox.hide();
-        mainTextbox.setText(" ");
-        mainTextbox.setName(" ");
-        responseA.hide();
+        sentences[0] = "You there";
+        sentences[1] = "What is your name?";
+        sentences[2] = "What is your name?";
+        sentences[3] = "What is your name?";
+        sentences[4] = "Hi John";
+        sentences[5] = "I'm Eve";
+        sentences[6] = "How are you?";
+        sentences[7] = "How are you?";
+        sentences[8] = "How are you?";
+        sentences[9] = "Great!";
+        sentences[10] = "Are you free right now?";
+        sentences[11] = "I have a coupon for a very popular drink";
+        sentences[12] = "It's at a near by cafe";
+        sentences[13] = "I was suppose to go with a friends but he...";
+        sentences[14] = "So will you go with me instead?";
+        sentences[15] = "Don't worry! I'll pay for the whole thing!";
+        sentences[16] = "So please? Pretty please??";
+        sentences[17] = "So please? Pretty please??";
+        sentences[18] = "So please? Pretty please??";
+        sentences[19] = "Yes! Thanks John!";
+        sentences[20] = "Let's right now before a line form!";
+        sentences[21] = "Let's right now before a line form!";
+        sentences[22] = "Let's right now before a line form!";
 
         pauseTimer.mark();
         //the cursor
         Pointer pointer = new Pointer();
         addObject(pointer, -10, -10);
     }
-    public int goodEnding = 0;
-    public int badEnding = 0;
-    public void act()
+    //This is to keep track the points to each ending
+
+    public void act ()
     {
-        if(idx == 1)
+        // For Eve to change expression mid conversation
+        if(idx == 5)
         {
-            johnTextbox.setText("She is taking her time looking at the menu...");
+                //The image should change to eve.Happy
+                eve.setState("happy");
         }
         if(idx == 6)
         {
-            johnTextbox.show();
-            johnTextbox.setText("Eve called over a waiter and submitted our orders");
-            mainTextbox.hide();
-            mainTextbox.setName(" ");
+                //The image should change to eve.Normal
+                eve.setState("normal");
+                mainTextbox.setName("Eve");
         }
-        if(idx == 7)
+        if(idx == 10)
         {
-            mainTextbox.show();
-            mainTextbox.setName("Eve");
-            johnTextbox.hide();
+                //The image should change to eve.Happy
+                eve.setState("happy");
         }
-        //Good reponses
-        String option1_g = "Thanks!";
-        //Bad responses
-        String option1_b = "Oh, it's fine";
+        if(idx == 11)
+        {
+                //The image should change to eve.Normal
+                eve.setState("normal");
+        }
+        if(idx == 20)
+        {
+                //The image should change to eve.Normal
+                eve.setState("happy");
+        }
+        if(idx == 21)
+        {
+                //The image should change to eve.Normal
+                eve.setState("normal");
+        }
+        if(idx == 22)
+        {
+                //Continue to the next world
+                GameWorld3 gameWorld3 = new GameWorld3();
+                Greenfoot.setWorld(gameWorld3);
+        }
+        //For the option box to show up
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
             paused = true;
             pauseTimer.mark();
-            if(idx == 2)
-            {
-                mainTextbox.show();
-                mainTextbox.setText("Hey John, what are you gonna order?");
-                mainTextbox.setName("Eve");
-                johnTextbox.hide();
-            }
             if(idx == 3)
             {
-                addObject(responseA,500,250);
-                responseA.show();
-                responseA.setText("I'll just have the drink");
+                //Option 1
+                addObject(responseA, 500, 250);
+                responseA.setText("Uh, I'm John");
                 choiceEnabled = true;
             }
-            if(idx == 11)
+            if(idx == 8)
             {
+                //Option 2
                 responseA.show();
-                responseA.setText("Yeah sure");
-                addObject(responseB,500, 345);
-                responseB.show();
-                responseB.setText("No, I don't want to");
+                responseA.setText("I'm good...");
                 choiceEnabled = true;
             }
-        }
-    
+            if(idx == 18)
+            {
+                //Option 2
+                responseA.show();
+                responseA.setText("Well, it is a free drink...");
+                choiceEnabled = true;
+            }
+        } 
+        
         if(choiceEnabled)
         {
             // if mouseclicked
@@ -129,33 +148,8 @@ public class GameWorld2 extends World
                 // hide responseA
                 responseA.setText(" ");
                 responseA.hide();
-                responseB.setText(" ");
-                responseB.hide();
                 idx++;
                 mainTextbox.setText(nextSentence());
-                goodEnding++;
-                if(idx == 13 && goodEnding == 1)
-                {
-                    mainTextbox.setText(option1_g);
-                    eve.setState("happy");
-                }
-            }
-            if(Greenfoot.mouseClicked(responseB))
-            {
-                choiceEnabled = false;
-                // hide responseB
-                responseA.setText(" ");
-                responseA.hide();
-                responseB.setText(" ");
-                responseB.hide();
-                idx++;
-                mainTextbox.setText(nextSentence());
-                badEnding++;
-                if(idx == 13 && badEnding == 1)
-                {
-                    mainTextbox.setText(option1_b);
-                    eve.setState("normal");
-                }
             }
             // advance nextSentence
         }
@@ -165,7 +159,7 @@ public class GameWorld2 extends World
             paused = false;
         }
     }
-    
+
     private String nextSentence()
     {
         return sentences[idx++];
