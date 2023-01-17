@@ -10,7 +10,7 @@ public class GameWorld0 extends World
 {
     JohnTextbox johnTextbox = new JohnTextbox();
     
-    String[] sentences = new String[23];
+    String[] sentences = new String[9];
     int idx = 0;
 
     boolean paused = false;
@@ -27,14 +27,29 @@ public class GameWorld0 extends World
         
         addObject(johnTextbox , 500, 250);
         
-        johnTextbox.setText("It's that day again...");
+        johnTextbox.setText("'So this day again...'");
         
         //Dialoges
-        sentences[0] = " ";
+        sentences[0] = "February 4, 20XX Saturday";
+        sentences[1] = "'Mom said she had already prepare the flowers'";
+        sentences[2] = "'...'";
+        sentences[3] = "'.....'";
+        sentences[4] = "'John you big idiot...'";
+        sentences[5] = "'If only you said something-'";
+        sentences[6] = "'...'";
+        sentences[7] = "'I need some fresh air'";
+        sentences[8] = "'I need some fresh air'";
     }
     
     public void act()
     {
+        if(idx == 9)
+        {
+                //Continue to the next world
+                GameWorld1 gameWorld1 = new GameWorld1();
+                Greenfoot.setWorld(gameWorld1);
+        }
+        
         if(Greenfoot.isKeyDown("space") && !paused)
         {
             johnTextbox.setText(nextSentence());

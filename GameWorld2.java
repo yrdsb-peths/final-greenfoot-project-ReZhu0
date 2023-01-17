@@ -22,11 +22,6 @@ public class GameWorld2 extends World
     
     boolean paused = false;
     boolean choiceEnabled = false;
-
-    //Good reponses
-    String option1_g = "Thanks!";
-    //Bad responses
-    String option1_b = "Oh, it's fine";
     
     SimpleTimer pauseTimer = new SimpleTimer();
     /**
@@ -91,7 +86,10 @@ public class GameWorld2 extends World
             mainTextbox.setName("Eve");
             johnTextbox.hide();
         }
-        
+        //Good reponses
+        String option1_g = "Thanks!";
+        //Bad responses
+        String option1_b = "Oh, it's fine";
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
