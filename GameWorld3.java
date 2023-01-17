@@ -52,8 +52,9 @@ public class GameWorld3 extends World
         sentences[8] = "I would like to get to know you better";
         sentences[9] = "Would you mind a little about yourself?";
         sentences[10] = "Would you mind a little about yourself?";
-        sentences[11] = " ";
-        sentences[12] = " ";
+        sentences[11] = "---";
+        sentences[12] = "---";
+        sentences[13] = "I'll tell you about myself then";
     
         mainTextbox.hide();
         mainTextbox.setText(" ");
@@ -87,9 +88,9 @@ public class GameWorld3 extends World
             johnTextbox.hide();
         }
         //Good reponses
-        String option1_g = "Thanks!";
+        String option1_g1 = "Thanks!";
         //Bad responses
-        String option1_b = "Oh, it's fine";
+        String option1_b1 = "Oh, it's fine";
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
@@ -105,7 +106,9 @@ public class GameWorld3 extends World
             if(idx == 3)
             {
                 addObject(responseA,500,250);
+                addObject(responseB,500, 345);
                 responseA.show();
+                responseB.hide();
                 responseA.setText("I'll just have the drink");
                 choiceEnabled = true;
             }
@@ -113,7 +116,6 @@ public class GameWorld3 extends World
             {
                 responseA.show();
                 responseA.setText("Yeah sure");
-                addObject(responseB,500, 345);
                 responseB.show();
                 responseB.setText("No, I don't want to");
                 choiceEnabled = true;
@@ -136,7 +138,7 @@ public class GameWorld3 extends World
                 goodEnding++;
                 if(idx == 13 && goodEnding == 1)
                 {
-                    mainTextbox.setText(option1_g);
+                    mainTextbox.setText(option1_g1);
                     eve.setState("happy");
                 }
             }
@@ -153,7 +155,7 @@ public class GameWorld3 extends World
                 badEnding++;
                 if(idx == 13 && badEnding == 1)
                 {
-                    mainTextbox.setText(option1_b);
+                    mainTextbox.setText(option1_b1);
                     eve.setState("normal");
                 }
             }
