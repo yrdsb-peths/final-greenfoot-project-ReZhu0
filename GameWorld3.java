@@ -10,14 +10,14 @@ public class GameWorld3 extends World
 {
     MainTextbox mainTextbox = new MainTextbox(); 
     ResponseTextboxA responseA = new ResponseTextboxA();
-    ResponseTextboxB responseB = new ResponseTextboxB();
     Eve eve = new Eve();
+    Hand hand = new Hand();
     Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
     Drink1 drink1 = new Drink1();
     Drink2 drink2 = new Drink2();
     
-    String[] sentences = new String[45];
+    String[] sentences = new String[50];
     int idx = 0;
 
     String response = "menu";
@@ -36,6 +36,7 @@ public class GameWorld3 extends World
         super(1000, 500, 1);
         
         addObject(eve,500,250);
+        addObject(hand,500,250);
         addObject(table,500,250);
         addObject(drink1, 500, 250);
         addObject(drink2, 500, 250);
@@ -88,7 +89,16 @@ public class GameWorld3 extends World
         sentences[38] = "...";
         sentences[39] = "...";
         sentences[40] = " ";
+        sentences[41] = "Look John! It's the drink I've been talking about";
+        sentences[42] = "Look John! It's the drink I've been talking about";
+        sentences[43] = "Look John! It's the drink I've been talking about";
+        sentences[44] = "John?";
+        sentences[45] = "John?";
+        sentences[46] = "John?";
+        sentences[47] = "Oh, okay then";
+        sentences[48] = " ";
         
+        hand.hide();
         drink1.hide();
         drink2.hide();
         mainTextbox.hide();
@@ -194,6 +204,28 @@ public class GameWorld3 extends World
             johnTextbox.setText("The waiter broke the silence by handing us our drinks");
             eve.setState("normal");
         }
+        if(idx == 42)
+        {
+            johnTextbox.hide();
+            mainTextbox.show();
+            mainTextbox.setName("Eve");
+            hand.show();
+            eve.setState("happy");
+        }
+        if(idx == 45)
+        {
+            eve.setState("normal");
+        }
+        if(idx == 48)
+        {
+            hand.hide();
+        }
+        if(idx == 49)
+        {
+                //Continue to the next world
+                GameWorld4 gameWorld4 = new GameWorld4();
+                Greenfoot.setWorld(gameWorld4);
+        }
     
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
@@ -244,6 +276,18 @@ public class GameWorld3 extends World
                 responseA.setText("Why were you not at to school?");
                 choiceEnabled = true;
             }
+            if(idx == 43)
+            {
+                responseA.show();
+                responseA.setText("!");
+                choiceEnabled = true;
+            }
+            if(idx == 46)
+            {
+                responseA.show();
+                responseA.setText("No, it's nothing");
+                choiceEnabled = true;
+            }
         }
     
         if(choiceEnabled)
@@ -255,23 +299,9 @@ public class GameWorld3 extends World
                 // hide responseA
                 responseA.setText(" ");
                 responseA.hide();
-                responseB.setText(" ");
-                responseB.hide();
                 idx++;
                 mainTextbox.setText(nextSentence());
                 goodEnding++;
-            }
-            if(Greenfoot.mouseClicked(responseB))
-            {
-                choiceEnabled = false;
-                // hide responseB
-                responseA.setText(" ");
-                responseA.hide();
-                responseB.setText(" ");
-                responseB.hide();
-                idx++;
-                mainTextbox.setText(nextSentence());
-                badEnding++;
             }
             // advance nextSentence
         }
