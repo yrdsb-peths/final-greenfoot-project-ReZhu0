@@ -94,9 +94,17 @@ public class GameWorld2 extends World
                 //The image should change to eve.Normal
                 eve.setState("normal");
         }
+        if(idx == 14)
+        {
+            eve.setState("away");
+        }
+        if(idx == 15)
+        {
+            eve.setState("normal");
+        }
         if(idx == 20)
         {
-                //The image should change to eve.Normal
+                //The image should change to eve.Happy
                 eve.setState("happy");
         }
         if(idx == 21)

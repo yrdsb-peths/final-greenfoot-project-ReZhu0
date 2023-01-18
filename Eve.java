@@ -20,6 +20,10 @@ public class Eve extends Actor
     
     GreenfootImage menu = new GreenfootImage("images/characters/eve_menu.png");
     
+    GreenfootImage down = new GreenfootImage("images/characters/eve_down.png");
+    
+    GreenfootImage away = new GreenfootImage("images/characters/eve_away.png");
+    
     SimpleTimer animationTimer = new SimpleTimer();
     
     String state = "normal"; // angry, happy
@@ -71,6 +75,12 @@ public class Eve extends Actor
         }else if(state.equals("menu"))
         {
             setImage(menu);
+        }else if(state.equals("down"))
+        {
+            setImage(down);
+        }else if(state.equals("away"))
+        {
+            setImage(away);
         }
     }
     

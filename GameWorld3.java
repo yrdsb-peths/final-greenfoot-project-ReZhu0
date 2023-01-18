@@ -14,8 +14,10 @@ public class GameWorld3 extends World
     Eve eve = new Eve();
     Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
+    Drink1 drink1 = new Drink1();
+    Drink2 drink2 = new Drink2();
     
-    String[] sentences = new String[40];
+    String[] sentences = new String[45];
     int idx = 0;
 
     String response = "menu";
@@ -35,6 +37,8 @@ public class GameWorld3 extends World
         
         addObject(eve,500,250);
         addObject(table,500,250);
+        addObject(drink1, 500, 250);
+        addObject(drink2, 500, 250);
         addObject(mainTextbox,500,250);
         addObject(johnTextbox , 500, 250);
         
@@ -58,10 +62,10 @@ public class GameWorld3 extends World
         sentences[12] = "Thanks";
         sentences[13] = "---";
         sentences[14] = "---";
-        sentences[15] = "---";
+        sentences[15] = "I knew it!";
         sentences[16] = "I knew it!";
         sentences[17] = "I knew it!";
-        sentences[18] = " ";
+        sentences[18] = "You went to the same school as me right?";
         sentences[19] = "You went to the same school as me right?";
         sentences[20] = "I knew I've seen you around from somewhere";
         sentences[21] = "I knew I've seen you around from somewhere";
@@ -76,11 +80,17 @@ public class GameWorld3 extends World
         sentences[30] = "My parents sell my paintings online";
         sentences[31] = "And surprisingly there is a demand for my work!";
         sentences[32] = "And surprisingly there is a demand for my work!";
-        sentences[33] = "Yeah, it is really fun";
-        sentences[34] = "It's just... I don't have any motivation to draw";
+        sentences[33] = "And surprisingly there is a demand for my work!";
+        sentences[34] = "Yeah, it is really fun";
         sentences[35] = "It's just... I don't have any motivation to draw";
-        sentences[36] = "...";
+        sentences[36] = "It's just... I don't have any motivation to draw";
+        sentences[37] = "It's just... I don't have any motivation to draw";
+        sentences[38] = "...";
+        sentences[39] = "...";
+        sentences[40] = " ";
         
+        drink1.hide();
+        drink2.hide();
         mainTextbox.hide();
         mainTextbox.setText(" ");
         mainTextbox.setName(" ");
@@ -131,7 +141,7 @@ public class GameWorld3 extends World
             johnTextbox.show();
             johnTextbox.setText("Of course, you didn't tell her anything personal");
         }
-        if(idx == 17)
+        if(idx == 16)
         {
             mainTextbox.show();
             mainTextbox.setName("Eve");
@@ -139,6 +149,14 @@ public class GameWorld3 extends World
             eve.setState("happy");
         }
         if(idx == 20)
+        {
+            eve.setState("normal");
+        }
+        if(idx == 25)
+        {
+            eve.setState("away");
+        }
+        if(idx == 26)
         {
             eve.setState("normal");
         }
@@ -150,12 +168,30 @@ public class GameWorld3 extends World
         {
             eve.setState("normal");
         }
-        if(idx == 32)
+        if(idx == 35)
         {
             eve.setState("happy");
         }
-        if(idx == 35)
+        if(idx == 36)
         {
+            eve.setState("away");
+        }
+        if(idx == 39)
+        {
+            eve.setState("down");
+        }
+        if(idx == 40)
+        {
+            mainTextbox.hide();
+            mainTextbox.setName(" ");
+            johnTextbox.show();
+            johnTextbox.setText("The girl looked down in silence");
+        }
+        if(idx == 41)
+        {
+            drink1.show();
+            drink2.show();
+            johnTextbox.setText("The waiter broke the silence by handing us our drinks");
             eve.setState("normal");
         }
     
@@ -184,7 +220,7 @@ public class GameWorld3 extends World
                 responseA.setText("Yeah sure");
                 choiceEnabled = true;
             }
-            if(idx == 18)
+            if(idx == 17)
             {
                 responseA.show();
                 responseA.setText("?");
@@ -202,10 +238,10 @@ public class GameWorld3 extends World
                 responseA.setText("Wow, that's great");
                 choiceEnabled = true;
             }
-            if(idx == 36)
+            if(idx == 37)
             {
                 responseA.show();
-                responseA.setText("Why did you stop going to school?");
+                responseA.setText("Why were you not at to school?");
                 choiceEnabled = true;
             }
         }
