@@ -15,10 +15,10 @@ public class GameWorld3 extends World
     Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
     
-    String[] sentences = new String[30];
+    String[] sentences = new String[40];
     int idx = 0;
 
-    String response = "normal";
+    String response = "menu";
     
     boolean paused = false;
     boolean choiceEnabled = false;
@@ -37,6 +37,8 @@ public class GameWorld3 extends World
         addObject(table,500,250);
         addObject(mainTextbox,500,250);
         addObject(johnTextbox , 500, 250);
+        
+        eve.setState("menu");
         
         mainTextbox.setName("Eve");
         johnTextbox.setText("You and Eve headed to the cafe and was steated");
@@ -62,6 +64,22 @@ public class GameWorld3 extends World
         sentences[18] = " ";
         sentences[19] = "You went to the same school as me right?";
         sentences[20] = "I knew I've seen you around from somewhere";
+        sentences[21] = "I knew I've seen you around from somewhere";
+        sentences[22] = "Yup, but you were two grades higher than me";
+        sentences[23] = "So I didn't know you very well";
+        sentences[24] = "But again I also didn't came to school very often";
+        sentences[25] = "Well, enough from you";
+        sentences[26] = "It's now my turn to tell you a little about me";
+        sentences[27] = "Well, where should I start...";
+        sentences[28] = "Oh here's something about me, I'm an artist!";
+        sentences[29] = "No, I don't mean I draw for fun, well, I do";
+        sentences[30] = "My parents sell my paintings online";
+        sentences[31] = "And surprisingly there is a demand for my work!";
+        sentences[32] = "And surprisingly there is a demand for my work!";
+        sentences[33] = "Yeah, it is really fun";
+        sentences[34] = "It's just... I don't have any motivation to draw";
+        sentences[35] = "It's just... I don't have any motivation to draw";
+        sentences[36] = "...";
         
         mainTextbox.hide();
         mainTextbox.setText(" ");
@@ -90,6 +108,7 @@ public class GameWorld3 extends World
         }
         if(idx == 7)
         {
+            eve.setState("normal");
             mainTextbox.show();
             mainTextbox.setName("Eve");
             johnTextbox.hide();
@@ -123,6 +142,22 @@ public class GameWorld3 extends World
         {
             eve.setState("normal");
         }
+        if(idx == 29)
+        {
+            eve.setState("happy");
+        }
+        if(idx == 30)
+        {
+            eve.setState("normal");
+        }
+        if(idx == 32)
+        {
+            eve.setState("happy");
+        }
+        if(idx == 35)
+        {
+            eve.setState("normal");
+        }
     
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
@@ -153,6 +188,24 @@ public class GameWorld3 extends World
             {
                 responseA.show();
                 responseA.setText("?");
+                choiceEnabled = true;
+            }
+            if(idx == 21)
+            {
+                responseA.show();
+                responseA.setText("Oh, is that so?");
+                choiceEnabled = true;
+            }
+            if(idx == 33)
+            {
+                responseA.show();
+                responseA.setText("Wow, that's great");
+                choiceEnabled = true;
+            }
+            if(idx == 36)
+            {
+                responseA.show();
+                responseA.setText("Why did you stop going to school?");
                 choiceEnabled = true;
             }
         }

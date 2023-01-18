@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.GreenfootImage;
 
 /**
  * Write a description of class Eve here.
@@ -16,6 +17,8 @@ public class Eve extends Actor
     GreenfootImage[] idle = new GreenfootImage[12];
     
     GreenfootImage happy = new GreenfootImage("images/characters/eve_happy.png");
+    
+    GreenfootImage menu = new GreenfootImage("images/characters/eve_menu.png");
     
     SimpleTimer animationTimer = new SimpleTimer();
     
@@ -65,6 +68,9 @@ public class Eve extends Actor
         {
             //show happy
             setImage(happy);
+        }else if(state.equals("menu"))
+        {
+            setImage(menu);
         }
     }
     
