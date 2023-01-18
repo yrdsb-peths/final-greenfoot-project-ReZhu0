@@ -15,7 +15,7 @@ public class GameWorld3 extends World
     Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
     
-    String[] sentences = new String[20];
+    String[] sentences = new String[30];
     int idx = 0;
 
     String response = "normal";
@@ -53,9 +53,16 @@ public class GameWorld3 extends World
         sentences[9] = "Would you mind a little about yourself?";
         sentences[10] = "Would you mind a little about yourself?";
         sentences[11] = "---";
-        sentences[12] = "---";
-        sentences[13] = "I'll tell you about myself then";
-    
+        sentences[12] = "Thanks";
+        sentences[13] = "---";
+        sentences[14] = "---";
+        sentences[15] = "---";
+        sentences[16] = "I knew it!";
+        sentences[17] = "I knew it!";
+        sentences[18] = " ";
+        sentences[19] = "You went to the same school as me right?";
+        sentences[20] = "I knew I've seen you around from somewhere";
+        
         mainTextbox.hide();
         mainTextbox.setText(" ");
         mainTextbox.setName(" ");
@@ -87,10 +94,36 @@ public class GameWorld3 extends World
             mainTextbox.setName("Eve");
             johnTextbox.hide();
         }
-        //Good reponses
-        String option1_g1 = "Thanks!";
-        //Bad responses
-        String option1_b1 = "Oh, it's fine";
+        if(idx == 13)
+        {
+            eve.setState("happy");
+        }
+        if(idx == 14)
+        {
+            eve.setState("normal");
+            mainTextbox.hide();
+            mainTextbox.setName(" ");
+            johnTextbox.show();
+            johnTextbox.setText("You tell Eve a little about yourself");
+        }
+        if(idx == 15)
+        {
+            mainTextbox.hide();
+            johnTextbox.show();
+            johnTextbox.setText("Of course, you didn't tell her anything personal");
+        }
+        if(idx == 17)
+        {
+            mainTextbox.show();
+            mainTextbox.setName("Eve");
+            johnTextbox.hide();
+            eve.setState("happy");
+        }
+        if(idx == 20)
+        {
+            eve.setState("normal");
+        }
+    
         if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
         {
             mainTextbox.setText(nextSentence());
@@ -106,9 +139,7 @@ public class GameWorld3 extends World
             if(idx == 3)
             {
                 addObject(responseA,500,250);
-                addObject(responseB,500, 345);
                 responseA.show();
-                responseB.hide();
                 responseA.setText("I'll just have the drink");
                 choiceEnabled = true;
             }
@@ -116,8 +147,12 @@ public class GameWorld3 extends World
             {
                 responseA.show();
                 responseA.setText("Yeah sure");
-                responseB.show();
-                responseB.setText("No, I don't want to");
+                choiceEnabled = true;
+            }
+            if(idx == 18)
+            {
+                responseA.show();
+                responseA.setText("?");
                 choiceEnabled = true;
             }
         }
@@ -136,11 +171,6 @@ public class GameWorld3 extends World
                 idx++;
                 mainTextbox.setText(nextSentence());
                 goodEnding++;
-                if(idx == 13 && goodEnding == 1)
-                {
-                    mainTextbox.setText(option1_g1);
-                    eve.setState("happy");
-                }
             }
             if(Greenfoot.mouseClicked(responseB))
             {
@@ -153,11 +183,6 @@ public class GameWorld3 extends World
                 idx++;
                 mainTextbox.setText(nextSentence());
                 badEnding++;
-                if(idx == 13 && badEnding == 1)
-                {
-                    mainTextbox.setText(option1_b1);
-                    eve.setState("normal");
-                }
             }
             // advance nextSentence
         }
