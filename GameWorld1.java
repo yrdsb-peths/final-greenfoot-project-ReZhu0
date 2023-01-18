@@ -27,7 +27,7 @@ public class GameWorld1 extends World
         
         addObject(johnTextbox , 500, 250);
         
-        johnTextbox.setText("'So this day again...'");
+        johnTextbox.setText("'...'");
         
         //Dialoges
         sentences[0] = "'Can't believe it has been a whole year'";

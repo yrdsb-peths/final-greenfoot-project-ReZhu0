@@ -111,8 +111,7 @@ public class GameWorld3 extends World
         Pointer pointer = new Pointer();
         addObject(pointer, -10, -10);
     }
-    public int goodEnding = 0;
-    public int badEnding = 0;
+    
     public void act()
     {
         if(idx == 1)
@@ -301,7 +300,6 @@ public class GameWorld3 extends World
                 responseA.hide();
                 idx++;
                 mainTextbox.setText(nextSentence());
-                goodEnding++;
             }
             // advance nextSentence
         }

@@ -11,16 +11,12 @@ public class GameWorld4 extends World
     MainTextbox mainTextbox = new MainTextbox(); 
     ResponseTextboxA responseA = new ResponseTextboxA();
     Eve eve = new Eve();
-    Hand hand = new Hand();
-    Table table = new Table();
     JohnTextbox johnTextbox = new JohnTextbox();
-    Drink1 drink1 = new Drink1();
-    Drink2 drink2 = new Drink2();
     
     String[] sentences = new String[50];
     int idx = 0;
 
-    String response = "menu";
+    String response = "normal";
     
     boolean paused = false;
     boolean choiceEnabled = false;
@@ -36,24 +32,112 @@ public class GameWorld4 extends World
         super(1000, 500, 1); 
         
         addObject(eve,500,250);
-        addObject(hand,500,250);
-        addObject(table,500,250);
-        addObject(drink1, 500, 250);
-        addObject(drink2, 500, 250);
         addObject(mainTextbox,500,250);
         addObject(johnTextbox , 500, 250);
+        addObject(responseA, 500, 250);
         
-        eve.setState("menu");
+        eve.setState("normal");
         
         mainTextbox.setName("Eve");
-        johnTextbox.setText("You and Eve headed to the cafe and was steated");
+        johnTextbox.setText("One and a half hour later...");
         
-        hand.hide();
-        drink1.hide();
-        drink2.hide();
+        sentences[0] = "Well, thank you for spending your day with me";
+        sentences[1] = "I have to take my leave now";
+        sentences[2] = "Have a good day!";
+        sentences[3] = "Have a good day!";
+        sentences[4] = "Have a good day!";
+        sentences[5] = "Bye!";
+        sentences[6] = " ";
+        sentences[7] = " ";
+        sentences[8] = " ";
+        sentences[9] = " ";
+        sentences[10] = " ";
+        sentences[11] = " ";
+        sentences[12] = " ";
         mainTextbox.hide();
-        mainTextbox.setText(" ");
         mainTextbox.setName(" ");
         responseA.hide();
+    }
+    public void act()
+    {
+        if(idx == 1)
+        {
+            johnTextbox.hide();
+            mainTextbox.show();
+            mainTextbox.setName("Eve");
+        }
+        if(idx == 6)
+        {
+            eve.setState("happy");
+        }
+        if(idx == 7)
+        {
+            eve.hideImage();
+            mainTextbox.hide();
+            mainTextbox.setName(" ");
+            johnTextbox.show();
+            johnTextbox.setText("The girl ran off");
+        }
+        if(idx == 8)
+        {
+            johnTextbox.setText("'The way she acted at the cafe...'");
+        }
+        if(idx == 9)
+        {
+            johnTextbox.setText("'It was just like how she acted that day'");
+        }
+        if(idx == 10)
+        {
+            johnTextbox.setText("'And her hand, it was wrapped up'");
+        }
+        if(idx == 11)
+        {
+            johnTextbox.setText("'I wondered...'");
+        }
+        if(idx == 12)
+        {
+            johnTextbox.setText("'If I can get her to open up to me more...'");
+        }
+        if(idx == 13)
+        {
+            johnTextbox.setText("Creator Note: You made it to the end! Congrats!");
+        }
+        
+        if(Greenfoot.isKeyDown("space") && !paused && !choiceEnabled)
+        {
+            mainTextbox.setText(nextSentence());
+            paused = true;
+            pauseTimer.mark();
+            if(idx == 4)
+            {
+                responseA.show();
+                responseA.setText("Yeah, you too");
+                choiceEnabled = true;
+            }
+        }
+        if(choiceEnabled)
+        {
+            // if mouseclicked
+            if(Greenfoot.mouseClicked(responseA))
+            {
+                choiceEnabled = false;
+                // hide responseA
+                responseA.setText(" ");
+                responseA.hide();
+                idx++;
+                mainTextbox.setText(nextSentence());
+            }
+            // advance nextSentence
+        }
+        
+        if(pauseTimer.millisElapsed() > 100)
+        {
+            paused = false;
+        }
+    }
+    
+    private String nextSentence()
+    {
+        return sentences[idx++];
     }
 }
