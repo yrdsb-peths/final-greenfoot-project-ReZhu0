@@ -1,6 +1,6 @@
 # Final Greenfoot Project
 This is the README.md file.
 
-Consider using **Markdown** syntax to format the text in this file. [Markdown basics](https://www.markdownguide.org/getting-started/)
+Use "SPACE" key to proceed the story and use mouse to click in the option.
 
 
