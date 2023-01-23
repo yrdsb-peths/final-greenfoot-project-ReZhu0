@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class TitleScreen extends World
 {
-    
 
     /**
      * Constructor for objects of class Title.
@@ -20,8 +19,9 @@ public class TitleScreen extends World
         super(1000, 500, 1); 
         Title title = new Title();
         addObject(title,500, 210);
+        prepare();
     }
-    
+
     public void act()
     {
         if(Greenfoot.isKeyDown("space"))
@@ -29,5 +29,12 @@ public class TitleScreen extends World
             GameWorld0 gameWorld0 = new GameWorld0();
             Greenfoot.setWorld(gameWorld0);
         }
+    }
+    /**
+     * Prepare the world for the start of the program.
+     * That is: create the initial objects and add them to the world.
+     */
+    private void prepare()
+    {
     }
 }
