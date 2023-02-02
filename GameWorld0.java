@@ -31,7 +31,7 @@ public class GameWorld0 extends World
         
         //Dialoges
         sentences[0] = "February 4, 20XX Saturday";
-        sentences[1] = "'Mom said she had already prepare the flowers'";
+        sentences[1] = "'Mom said she had already prepared the flowers'";
         sentences[2] = "'...'";
         sentences[3] = "'.....'";
         sentences[4] = "'John you big idiot...'";
